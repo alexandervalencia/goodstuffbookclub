@@ -6,6 +6,7 @@ ruby '2.6.4'
 gem 'rails', github: 'rails/rails'
 
 gem 'bootsnap', '>= 1.4.2', require: false
+gem 'devise'
 gem 'jbuilder', '~> 2.7'
 gem 'pg'
 gem 'puma', '~> 4.1'
