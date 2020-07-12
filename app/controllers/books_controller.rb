@@ -42,6 +42,7 @@ class BooksController < ApplicationController
   def update
     respond_to do |format|
       if @book.update(book_params)
+        @book.cover.attach(params[:cover])
         format.html { redirect_to @book, notice: 'Book was successfully updated.' }
         format.json { render :show, status: :ok, location: @book }
       else
@@ -69,6 +70,12 @@ class BooksController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def book_params
-      params.require(:book).permit(:author, :title, :subtitle, :added_by_id)
+      params.require(:book).permit(
+        :added_by_id,
+        :author,
+        :cover,
+        :subtitle,
+        :title
+      )
     end
 end
