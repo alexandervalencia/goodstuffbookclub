@@ -15,6 +15,14 @@
     <%= render(AlertComponent.new(type: :alert, message: alert)) if alert %>
     <%= render(AlertComponent.new(type: :notice, message: notice)) if notice %>
 
+    <header>
+      <nav class="border-b-2 flex items-center justify-between mx-12 px-4 py-2">
+        <%= link_to root_url,
+                    class: "flex items-center font-black text-3xl uppercase" do %>
+          <%= inline_svg_pack_tag('media/images/icon-books.svg',
+                                  class: 'h-10 w-10 mr-4') %>
+          <span>Good Stuff Book Club</span>
+        <% end %>
     <% if user_signed_in? %>
       Logged in as <strong><%= current_user.email %></strong>.
       <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> |
@@ -23,6 +31,8 @@
       <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> |
       <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
     <% end %>
+      </nav>
+    </header>
 
     <main class="max-w-screen-xl mx-auto mt-8">
     <%= yield %>
