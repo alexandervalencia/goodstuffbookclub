@@ -12,6 +12,8 @@
   </head>
 
   <body class="text-gray-100">
+    <%= render(AlertComponent.new(type: :alert, message: alert)) if alert %>
+    <%= render(AlertComponent.new(type: :notice, message: notice)) if notice %>
 
     <% if user_signed_in? %>
       Logged in as <strong><%= current_user.email %></strong>.
