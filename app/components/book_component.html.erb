@@ -1,0 +1,15 @@
+<div class="flex items-center">
+  <%= inline_svg_pack_tag('media/images/icon-book.svg',
+                          class: 'h-32 w-20 mr-4') %>
+
+  <div>
+    <%= tag.h2 class: "font-bold text-3xl" do %>
+      <%= link_to @book.title, @book %>
+    <% end %>
+
+    <%= tag.p @book.subtitle if @book.subtitle.present? %>
+
+    <%= tag.p @book.author %>
+  </div>
+</div>
+
