@@ -1,15 +1,15 @@
-import RailsUjs from '@rails/ujs';
+// import Rails from '@rails/ujs';
 import Turbolinks from 'turbolinks';
-import ActiveStorage from '@rails/activestorage';
-import '../channels';
+// import * as ActiveStorage from '@rails/activestorage';
+// import '../channels';
 import '../controllers';
 
 import '../stylesheets/application.scss';
 
-RailsUjs.start();
+// Rails.start();
 Turbolinks.start();
-ActiveStorage.start();
+// ActiveStorage.start();
 
-const images = require.context('../images', true);
 // eslint-disable-next-line no-unused-vars
-const imagePath = (name) => images(name, true);
+const images = require.context('../images', true);
+// const imagePath = (name) => images(name, true);
