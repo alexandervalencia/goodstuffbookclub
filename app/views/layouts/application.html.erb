@@ -23,19 +23,44 @@
                                   class: 'h-10 w-10 mr-4') %>
           <span>Good Stuff Book Club</span>
         <% end %>
-    <% if user_signed_in? %>
-      Logged in as <strong><%= current_user.email %></strong>.
-      <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> |
-      <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
-    <% else %>
-      <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> |
-      <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
-    <% end %>
+
+        <div
+          class="relative"
+          data-controller="dropdown"
+          data-dropdown-toggle-class="hidden"
+        >
+          <button data-action="click->dropdown#toggle click@window->dropdown#hide" type="button">
+            <%= render(UserIconComponent.new(user: { name: "alex"} )) %>
+          </button>
+
+          <div
+            class="absolute bg-white text-gray-900 rounded w-56 right-0 p-4 hidden"
+            data-dropdown-target="menu"
+          >
+            <ul class="list-none p-0">
+              <% if user_signed_in? %>
+                <li class="border-b pb-2">
+                  <strong><%= current_user.email %></strong>
+                </li>
+                <li class="mt-2">
+                  <%= link_to 'Edit profile', edit_user_registration_path %>
+                </li>
+                <li>
+                  <%= link_to "Logout", destroy_user_session_path, method: :delete %>
+                </li>
+              <% else %>
+              <% end %>
+            </ul>
+          </div>
+        </div>
+
+        <%= link_to "Sign up | ", new_user_registration_path, :class => 'navbar-link' unless user_signed_in? %>
+        <%= link_to "Login", new_user_session_path, :class => 'navbar-link' unless user_signed_in? %>
       </nav>
     </header>
 
     <main class="max-w-screen-xl mx-auto mt-8">
-    <%= yield %>
+      <%= yield %>
     </main>
   </body>
 </html>
