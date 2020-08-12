@@ -2,6 +2,7 @@ import RailsUjs from '@rails/ujs';
 import Turbolinks from 'turbolinks';
 import ActiveStorage from '@rails/activestorage';
 import '../channels';
+import '../controllers';
 
 import '../stylesheets/application.scss';
 
