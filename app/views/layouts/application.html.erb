@@ -34,21 +34,14 @@
           </button>
 
           <div
-            class="absolute bg-white text-gray-900 rounded w-56 right-0 p-4 hidden"
+            class="absolute bg-white text-gray-900 rounded right-0 p-4 hidden"
             data-dropdown-target="menu"
           >
-            <ul class="list-none p-0">
+            <ul class="list-none p-0 text-right">
               <% if user_signed_in? %>
-                <li class="border-b pb-2">
-                  <strong><%= current_user.email %></strong>
-                </li>
-                <li class="mt-2">
-                  <%= link_to 'Edit profile', edit_user_registration_path %>
-                </li>
-                <li>
-                  <%= link_to "Logout", destroy_user_session_path, method: :delete %>
-                </li>
-              <% else %>
+                <li class="border-b font-bold pb-2 mb-2"><%= current_user.email %></li>
+                <li><%= link_to 'Edit profile', edit_user_registration_path %></li>
+                <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
               <% end %>
             </ul>
           </div>
